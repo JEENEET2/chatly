@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+import "@/app/globals.css";
 import Navbar from "@/components/navbar";
 import ScrollTop from "@/components/scroll-top";
 import type { Metadata } from "next";

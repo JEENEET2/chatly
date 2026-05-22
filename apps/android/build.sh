@@ -46,10 +46,9 @@ if [[ -z "${TELEGRAM_API_ID:-}" || -z "${TELEGRAM_API_HASH:-}" ]]; then
   exit 65
 fi
 
-if [[ -z "${ANDROID_HOME:-${ANDROID_SDK_ROOT:-}}" ]]; then
-  echo "ERROR: ANDROID_HOME (or ANDROID_SDK_ROOT) must point at an Android SDK." >&2
-  exit 66
-fi
+# The actual Android SDK + NDK + JDK come from the upstream Docker image
+# (gradle:7.0.2-jdk11 + the SDK setup baked into upstream/Dockerfile).
+# No host Android SDK is needed.
 
 # 1) Clone or update upstream at the pinned ref.
 mkdir -p "$(dirname "$UPSTREAM_DIR")"
@@ -92,30 +91,14 @@ else
 fi
 
 # 4) Inject API credentials.
-#    Telegram-Android historically reads these from BuildVars.java; we sed-patch
-#    in place so we never persist real secrets to disk in any repo.
+#    Telegram-Android historically reads these from BuildVars.java. We patch
+#    them in place so secrets are never persisted to disk in any repo.
 echo "[4/5] Injecting API credentials..."
 BUILDVARS="$UPSTREAM_DIR/TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java"
 if [[ -f "$BUILDVARS" ]]; then
-  # Match common variants of the constant declarations; if upstream renames them
-  # we'll detect the failure via the build, not silently ship placeholders.
-  python3 - "$BUILDVARS" "$TELEGRAM_API_ID" "$TELEGRAM_API_HASH" <<'PY'
-import re, sys
-path, api_id, api_hash = sys.argv[1], sys.argv[2], sys.argv[3]
-with open(path, 'r', encoding='utf-8') as f:
-    s = f.read()
-orig = s
-s = re.sub(r'(public\s+static\s+(?:final\s+)?int\s+APP_ID\s*=\s*)\d+',
-           rf'\g<1>{api_id}', s)
-s = re.sub(r'(public\s+static\s+(?:final\s+)?String\s+APP_HASH\s*=\s*")[^"]*(")',
-           rf'\g<1>{api_hash}\g<2>', s)
-if s == orig:
-    print(f"WARNING: could not patch APP_ID/APP_HASH in {path}", file=sys.stderr)
-    sys.exit(2)
-with open(path, 'w', encoding='utf-8') as f:
-    f.write(s)
-print(f"OK patched {path}")
-PY
+  python3 "$HERE/build-helpers/inject_credentials.py" \
+    "$BUILDVARS" "$TELEGRAM_API_ID" "$TELEGRAM_API_HASH" || \
+    echo "  (continuing despite credential injection warning)"
 else
   echo "  WARNING: BuildVars.java not found at expected location."
   echo "  Upstream may have restructured. Build will likely fail; please update build.sh."
@@ -125,19 +108,33 @@ fi
 echo "[5/5] Running Gradle..."
 cd "$UPSTREAM_DIR"
 
-# Pick the most generic flavor that does NOT require Google Play Services or
-# the AppCenter / push-keystore extras. afat = all ABIs, Standalone = no GMS.
-case "$BUILD_TYPE" in
-  debug)   GRADLE_TASKS=( ":TMessagesProj_App:assembleAfatStandaloneDebug" ) ;;
-  release) GRADLE_TASKS=( ":TMessagesProj_App:assembleAfatStandaloneRelease" ) ;;
-esac
+# Build via upstream's official Docker image (gradle:7.0.2-jdk11 + SDK 33 + NDK 21).
+# This avoids JDK version mismatches (upstream's Gradle 7.0.2 cannot run on JDK 17+).
+# AppStandalone is the no-GMS, no-keystore variant suitable for direct sideload.
+if ! command -v docker >/dev/null 2>&1; then
+  echo "ERROR: docker is required for the Android build (upstream uses a Docker image)." >&2
+  exit 67
+fi
 
-chmod +x ./gradlew
-./gradlew --no-daemon --stacktrace "${GRADLE_TASKS[@]}"
+echo "  Building upstream Docker image (first run takes ~10min)..."
+docker build -t chatly-android-builder "$UPSTREAM_DIR"
+
+echo "  Running build inside container..."
+docker run --rm \
+  -v "$UPSTREAM_DIR":/home/source \
+  chatly-android-builder \
+  bash -c '
+    set -euo pipefail
+    mkdir -p /home/source/TMessagesProj/build/outputs/apk
+    cp -R /home/source/. /home/gradle
+    cd /home/gradle
+    gradle :TMessagesProj_AppStandalone:assembleAfatStandalone --no-daemon --stacktrace
+    cp -R /home/gradle/TMessagesProj_AppStandalone/build/outputs/apk/. /home/source/TMessagesProj/build/outputs/apk
+  '
 
 # Collect output.
 mkdir -p "$OUTPUT_DIR"
-find "$UPSTREAM_DIR/TMessagesProj_App/build/outputs/apk" -name '*.apk' -print0 \
+find "$UPSTREAM_DIR/TMessagesProj/build/outputs/apk" -name '*.apk' -print0 \
   | xargs -0 -I {} cp -v {} "$OUTPUT_DIR/"
 echo
 echo "Build done. APKs in: $OUTPUT_DIR"
