@@ -1,33 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   Chatly Android Overlay - Strings Resource File
-  This file replaces upstream strings to rebrand Telegram as Chatly
+  This file provides NEW strings that don't exist in upstream Telegram
+  Avoid duplicating existing Telegram string names to prevent build errors
 -->
 <resources>
-    <!-- App Name -->
+    <!-- App Name (using unique name to avoid conflict) -->
     <string name="app_name">Chatly</string>
     
-    <!-- About Screen -->
-    <string name="AppName">Chatly</string>
-    <string name="AppNameFull">Chatly Messenger</string>
+    <!-- New Chatly-Specific Strings -->
+    <string name="ChatlyWelcome">Welcome to Chatly</string>
+    <string name="ChatlyTagline">Fast, Secure, Beautiful Messaging</string>
     
-    <!-- Settings & Headers -->
-    <string name="SettingsTitle">Settings</string>
-    <string name="ChatListHeader">Chats</string>
+    <!-- Premium Features -->
+    <string name="ChatlyPremium">Chatly Premium</string>
+    <string name="ChatlyPremiumFeatures">Unlock premium features with Chatly Premium</string>
+    <string name="ChatlyPremiumBadge">PREMIUM</string>
     
-    <!-- Premium Features Rebranding -->
-    <string name="PremiumFeatureTitle">Chatly Premium</string>
-    <string name="PremiumUpgrade">Upgrade to Chatly Premium</string>
+    <!-- Feature Names (unique identifiers) -->
+    <string name="FeatureHDVideoCalls">HD Video Calls</string>
+    <string name="FeatureVoiceMessages2">Voice Messages 2.0</string>
+    <string name="FeatureSuperGroups">Super Groups (10K members)</string>
+    <string name="FeatureBroadcastChannels">Broadcast Channels</string>
+    <string name="FeatureSmartBots">Smart Chatly Bots</string>
+    <string name="FeatureCloudStorage">Unlimited Cloud Storage</string>
+    <string name="FeatureMessageReactions">Message Reactions</string>
+    <string name="FeatureThemes">Premium Themes</string>
     
-    <!-- Legal & Attribution -->
-    <string name="AboutChatly">About Chatly</string>
-    <string name="AboutVersion">Version</string>
-    <string name="AboutSource">Source Code</string>
-    <string name="AboutLicense">GNU General Public License v3.0</string>
-    <string name="AboutAttribution">Chatly is a derivative work of Telegram-Android (GPL-2.0+). Source code available at https://github.com/DrKLO/Telegram</string>
+    <!-- Onboarding (new screens) -->
+    <string name="OnboardingWelcomeTitle">Welcome to Chatly</string>
+    <string name="OnboardingWelcomeSubtitle">The next generation of messaging</string>
+    <string name="OnboardingPhoneEntry">Enter your phone number</string>
+    <string name="OnboardingCodeEntry">Enter verification code</string>
+    <string name="OnboardingProfileTitle">Complete Your Profile</string>
+    <string name="OnboardingNameEntry">Your full name</string>
     
-    <!-- Color Theme Names -->
-    <string name="ThemeNameDefault">Chatly Default</string>
-    <string name="ThemeNameDark">Chatly Dark</string>
-    <string name="ThemeNameNight">Chatly Night</string>
+    <!-- Status Messages -->
+    <string name="StatusTypingChatly">typing…</string>
+    <string name="StatusRecordingVoiceChatly">recording voice…</string>
+    <string name="StatusUploadingPhoto">uploading photo…</string>
+    <string name="StatusSendingMessage">sending…</string>
+    
+    <!-- Error Messages -->
+    <string name="ErrorNoConnection">No internet connection</string>
+    <string name="ErrorAuthFailed">Authentication failed</string>
+    <string name="ErrorGenericChatly">Something went wrong</string>
+    
+    <!-- About Section -->
+    <string name="AboutChatlyApp">About Chatly</string>
+    <string name="AboutChatlyVersion">Version 2.0-Premium</string>
+    <string name="AboutChatlyDescription">Chatly is a modern messaging platform built for speed, security, and beauty.</string>
+    <string name="AboutChatlyWebsite">https://chatly.app</string>
+    
+    <!-- Theme Names -->
+    <string name="ThemeChatlyDefault">Chatly Default</string>
+    <string name="ThemeChatlyDark">Chatly Dark</string>
+    <string name="ThemeChatlyNight">Chatly Night</string>
+    <string name="ThemeChatlyPremium">Chatly Premium Indigo</string>
+    <string name="ThemeChatlyOcean">Chatly Ocean</string>
+    <string name="ThemeChatlySunset">Chatly Sunset</string>
 </resources>

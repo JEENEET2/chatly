@@ -101,8 +101,28 @@ app.use(requestLogger);
 app.get('/health', (req, res) => {
   res.json({
     status: 'healthy',
+    app: 'Chatly',
+    version: '2.0.0-Premium',
     uptime: process.uptime(),
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
+    features: ['Real-time Messaging', 'HD Video Calls', 'Cloud Storage', 'Premium Themes']
+  });
+});
+
+// API Info endpoint
+app.get('/api/v1', (req, res) => {
+  res.json({
+    name: 'Chatly API',
+    version: 'v1',
+    description: 'Premium Messaging Platform API',
+    documentation: '/api/docs',
+    endpoints: {
+      auth: '/api/v1/auth',
+      users: '/api/v1/users',
+      chats: '/api/v1/chats',
+      messages: '/api/v1/messages',
+      files: '/api/v1/files'
+    }
   });
 });
 

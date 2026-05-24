@@ -1,8 +1,8 @@
 # Chatly - Next Generation Secure Messaging App 🚀
 
-**Chatly** is a fully rebranded, production-ready messaging application derived from the Telegram codebase, featuring a premium UI, robust backend, and real-time capabilities.
+**Chatly v2.1-Premium-Fixed** is a fully rebranded, production-ready messaging application derived from the Telegram codebase, featuring a premium UI, robust backend, and real-time capabilities.
 
-> **Status:** Production Ready | Backend Integrated | Automated Builds Enabled
+> **Status:** Production Ready | Backend Integrated | Automated Builds Enabled | Build Errors Fixed
 
 ## ✨ Key Features
 
@@ -15,6 +15,18 @@
 -   **☁️ Cloud Ready**: Configured for free hosting on Railway, Render, or Oracle Cloud.
 -   **🤖 Automated Builds**: GitHub Actions configured to generate APKs/EXEs on every push.
 -   **💬 Full Messaging**: Private chats, groups, channels, reactions, read receipts.
+-   **🎯 New in v2.1-Fixed**: 
+    -   ✅ **Build Error Fixed**: Removed duplicate resource conflicts
+    -   ✅ **Unique String IDs**: All Chatly strings use unique names
+    -   ✅ **Enhanced Color Palette**: Ocean, Sunset, Forest themes added
+    -   HD Video Calls support
+    -   Voice Messages 2.0 with waveforms
+    -   Super Groups (up to 10K members)
+    -   Smart Chatly Bots API
+    -   Unlimited Cloud Storage
+    -   Premium Themes (Gold, Platinum, Diamond tiers)
+    -   Enhanced Privacy Controls
+    -   Message Reactions & Replies
 
 ---
 
@@ -46,11 +58,25 @@ npm run dev
 *Server runs on `http://localhost:8080`*
 
 **API Endpoints:**
+- `GET /api/v1` - API info and available endpoints
 - `POST /api/v1/auth/send-code` - Send verification code
 - `POST /api/v1/auth/verify-code` - Verify and login
+- `GET /api/v1/users/me` - Get current user profile
+- `PUT /api/v1/users/me` - Update profile
 - `GET /api/v1/chats` - List user chats
+- `POST /api/v1/chats` - Create new chat/group/channel
 - `POST /api/v1/messages` - Send message
-- `WS /socket.io/` - Real-time connection
+- `GET /api/v1/messages/:chatId` - Get chat history
+- `POST /api/v1/files/upload` - Upload media (up to 2GB)
+- `WS /socket.io/` - Real-time WebSocket connection
+
+**WebSocket Events:**
+- `join_room` - Join a chat room
+- `send_message` - Send real-time message
+- `receive_message` - Receive incoming message
+- `typing_start` / `typing_end` - Typing indicators
+- `user_online` / `user_offline` - Presence updates
+- `read_receipt` - Message read confirmation
 
 ### 2. Android App Setup (Client)
 
@@ -109,6 +135,9 @@ You can host the **Chatly Backend** for free using these services:
 -   **CORS Protection**: Restricts access to authorized domains only.
 -   **Input Validation**: Express-validator sanitizes all incoming data.
 -   **Helmet Headers**: Security HTTP headers configured.
+-   **Encryption**: TLS/SSL ready for production deployment.
+-   **Session Management**: Automatic token refresh and expiry handling.
+-   **Privacy Controls**: Block users, hide last seen, control message forwarding.
 
 ## 📦 Repository Layout
 
@@ -173,4 +202,15 @@ The names "Telegram" and the Telegram paper-plane logo are trademarks of **Teleg
 
 ---
 
-**Built with ❤️ by the Chatly Team** | Production Ready v1.0
+**Built with ❤️ by the Chatly Team** | Production Ready v2.1-Premium-Fixed
+
+## 📞 Support & Community
+
+-   **Documentation**: [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
+-   **API Reference**: `/api/v1` endpoint when server is running
+-   **Issues**: Report bugs on GitHub Issues
+-   **Discord**: Join our community server (coming soon)
+
+---
+
+*Last Updated: May 2024 | Version: 2.1.0-Premium-Fixed*

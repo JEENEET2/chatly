@@ -2,10 +2,10 @@
 <!--
   Chatly Android Overlay - Colors Resource File
   Premium Color Grading: Modern gradient-based theme with purple/teal accents
-  Replaces Telegram's blue (#2481cc) with Chatly's signature gradient colors
+  Uses unique color names to avoid conflicts with upstream Telegram colors
 -->
 <resources>
-    <!-- Primary Brand Colors -->
+    <!-- Primary Brand Colors (Chatly signature indigo) -->
     <color name="chatly_primary">#6366F1</color>           <!-- Indigo 500 - Main brand color -->
     <color name="chatly_primary_dark">#4F46E5</color>      <!-- Indigo 600 - Darker variant -->
     <color name="chatly_primary_light">#818CF8</color>     <!-- Indigo 400 - Lighter variant -->
@@ -36,8 +36,25 @@
     <!-- Message Bubble Colors -->
     <color name="chatly_bubble_outgoing">#6366F1</color>   <!-- Outgoing messages -->
     <color name="chatly_bubble_incoming">#1E293B</color>   <!-- Incoming messages -->
+    <color name="chatly_bubble_outgoing_premium">#818CF8</color>   <!-- Premium gradient start -->
+    <color name="chatly_bubble_gradient_end">#A78BFA</color>       <!-- Premium gradient end -->
     
-    <!-- Legacy compatibility (maps old Telegram colors to Chatly) -->
-    <color name="telegram_blue">@color/chatly_primary</color>
-    <color name="theme_color">@color/chatly_primary</color>
+    <!-- Premium Feature Colors -->
+    <color name="chatly_premium_gold">#FBBF24</color>      <!-- Gold for premium badges -->
+    <color name="chatly_premium_platinum">#E5E7EB</color>  <!-- Platinum tier -->
+    <color name="chatly_premium_diamond">#7DD3FC</color>   <!-- Diamond tier -->
+    
+    <!-- Chat Status Indicators -->
+    <color name="chatly_online">#10B981</color>            <!-- Online green -->
+    <color name="chatly_offline">#6B7280</color>           <!-- Offline gray -->
+    <color name="chatly_away">#F59E0B</color>              <!-- Away orange -->
+    
+    <!-- Notification Colors -->
+    <color name="chatly_notification_mute">#64748B</color> <!-- Muted chats -->
+    <color name="chatly_notification_unread">#EF4444</color> <!-- Unread badge -->
+    
+    <!-- Additional Theme Colors -->
+    <color name="chatly_ocean_blue">#0EA5E9</color>        <!-- Ocean theme -->
+    <color name="chatly_sunset_orange">#F97316</color>     <!-- Sunset theme -->
+    <color name="chatly_forest_green">#22C55E</color>      <!-- Forest theme -->
 </resources>
