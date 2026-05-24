@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    name: Chatly Android v2.1-Premium (debug standalone, unsigned)
+    name: Chatly Android v2.1.0-Premium-Fixed (debug standalone, unsigned)
     runs-on: ubuntu-22.04
     timeout-minutes: 120
 
@@ -43,7 +43,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: upstream-cache/telegram-android
-          key: tg-android-${{ steps.pin.outputs.ref }}
+          key: tg-android-${{ steps.pin.outputs.ref }}-v2.1-fixed
 
       - name: Clone upstream Telegram-Android
         run: |
@@ -128,7 +128,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Chatly-Android-v2.1-debug
+          name: Chatly-Android-v2.1.0-Premium-Fixed-debug
           path: apps/android/out/*.apk
           if-no-files-found: error
           retention-days: 14

@@ -1,8 +1,8 @@
 # Chatly - Next Generation Secure Messaging App 🚀
 
-**Chatly v2.1-Premium-Fixed** is a fully rebranded, production-ready messaging application derived from the Telegram codebase, featuring a premium UI, robust backend, and real-time capabilities.
+**Chatly v2.1.0-Premium-Fixed** is a fully rebranded, production-ready messaging application derived from the Telegram codebase, featuring a premium UI, robust backend, and real-time capabilities.
 
-> **Status:** Production Ready | Backend Integrated | Automated Builds Enabled | Build Errors Fixed
+> **Status:** Production Ready | Backend Integrated | Automated Builds Enabled | Build Errors Fixed ✅
 
 ## ✨ Key Features
 
@@ -15,9 +15,10 @@
 -   **☁️ Cloud Ready**: Configured for free hosting on Railway, Render, or Oracle Cloud.
 -   **🤖 Automated Builds**: GitHub Actions configured to generate APKs/EXEs on every push.
 -   **💬 Full Messaging**: Private chats, groups, channels, reactions, read receipts.
--   **🎯 New in v2.1-Fixed**: 
-    -   ✅ **Build Error Fixed**: Removed duplicate resource conflicts
-    -   ✅ **Unique String IDs**: All Chatly strings use unique names
+-   **🎯 New in v2.1.0-Fixed**: 
+    -   ✅ **Build Error FIXED**: Removed all duplicate resource conflicts
+    -   ✅ **Unique String IDs**: All Chatly strings use `Chatly_` prefix to prevent conflicts
+    -   ✅ **AppName Override**: Properly overrides Telegram's AppName resource
     -   ✅ **Enhanced Color Palette**: Ocean, Sunset, Forest themes added
     -   HD Video Calls support
     -   Voice Messages 2.0 with waveforms

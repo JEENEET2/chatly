@@ -2,13 +2,13 @@
 <!--
   Chatly Android Overlay - Strings Resource File
   This file provides NEW strings that don't exist in upstream Telegram
-  Avoid duplicating existing Telegram string names to prevent build errors
+  All names are prefixed with "Chatly_" to prevent ANY conflicts
 -->
 <resources>
-    <!-- App Name (using unique name to avoid conflict) -->
-    <string name="app_name">Chatly</string>
+    <!-- App Name Override - MUST match Telegram's expected name -->
+    <string name="AppName">Chatly</string>
     
-    <!-- New Chatly-Specific Strings -->
+    <!-- New Chatly-Specific Strings (all prefixed to avoid conflicts) -->
     <string name="ChatlyWelcome">Welcome to Chatly</string>
     <string name="ChatlyTagline">Fast, Secure, Beautiful Messaging</string>
     
@@ -18,45 +18,45 @@
     <string name="ChatlyPremiumBadge">PREMIUM</string>
     
     <!-- Feature Names (unique identifiers) -->
-    <string name="FeatureHDVideoCalls">HD Video Calls</string>
-    <string name="FeatureVoiceMessages2">Voice Messages 2.0</string>
-    <string name="FeatureSuperGroups">Super Groups (10K members)</string>
-    <string name="FeatureBroadcastChannels">Broadcast Channels</string>
-    <string name="FeatureSmartBots">Smart Chatly Bots</string>
-    <string name="FeatureCloudStorage">Unlimited Cloud Storage</string>
-    <string name="FeatureMessageReactions">Message Reactions</string>
-    <string name="FeatureThemes">Premium Themes</string>
+    <string name="ChatlyFeatureHDVideo">HD Video Calls</string>
+    <string name="ChatlyFeatureVoiceMsg">Voice Messages 2.0</string>
+    <string name="ChatlyFeatureSuperGroups">Super Groups (10K members)</string>
+    <string name="ChatlyFeatureBroadcast">Broadcast Channels</string>
+    <string name="ChatlyFeatureSmartBots">Smart Chatly Bots</string>
+    <string name="ChatlyFeatureCloudStorage">Unlimited Cloud Storage</string>
+    <string name="ChatlyFeatureReactions">Message Reactions</string>
+    <string name="ChatlyFeatureThemes">Premium Themes</string>
     
     <!-- Onboarding (new screens) -->
-    <string name="OnboardingWelcomeTitle">Welcome to Chatly</string>
-    <string name="OnboardingWelcomeSubtitle">The next generation of messaging</string>
-    <string name="OnboardingPhoneEntry">Enter your phone number</string>
-    <string name="OnboardingCodeEntry">Enter verification code</string>
-    <string name="OnboardingProfileTitle">Complete Your Profile</string>
-    <string name="OnboardingNameEntry">Your full name</string>
+    <string name="ChatlyOnboardingTitle">Welcome to Chatly</string>
+    <string name="ChatlyOnboardingSubtitle">The next generation of messaging</string>
+    <string name="ChatlyOnboardingPhone">Enter your phone number</string>
+    <string name="ChatlyOnboardingCode">Enter verification code</string>
+    <string name="ChatlyOnboardingProfile">Complete Your Profile</string>
+    <string name="ChatlyOnboardingName">Your full name</string>
     
     <!-- Status Messages -->
-    <string name="StatusTypingChatly">typing…</string>
-    <string name="StatusRecordingVoiceChatly">recording voice…</string>
-    <string name="StatusUploadingPhoto">uploading photo…</string>
-    <string name="StatusSendingMessage">sending…</string>
+    <string name="ChatlyStatusTyping">typing…</string>
+    <string name="ChatlyStatusRecording">recording voice…</string>
+    <string name="ChatlyStatusUploading">uploading photo…</string>
+    <string name="ChatlyStatusSending">sending…</string>
     
     <!-- Error Messages -->
-    <string name="ErrorNoConnection">No internet connection</string>
-    <string name="ErrorAuthFailed">Authentication failed</string>
-    <string name="ErrorGenericChatly">Something went wrong</string>
+    <string name="ChatlyErrorNoConnection">No internet connection</string>
+    <string name="ChatlyErrorAuthFailed">Authentication failed</string>
+    <string name="ChatlyErrorGeneric">Something went wrong</string>
     
     <!-- About Section -->
-    <string name="AboutChatlyApp">About Chatly</string>
-    <string name="AboutChatlyVersion">Version 2.0-Premium</string>
-    <string name="AboutChatlyDescription">Chatly is a modern messaging platform built for speed, security, and beauty.</string>
-    <string name="AboutChatlyWebsite">https://chatly.app</string>
+    <string name="ChatlyAboutTitle">About Chatly</string>
+    <string name="ChatlyAboutVersion">Version 2.1.0-Premium-Fixed</string>
+    <string name="ChatlyAboutDescription">Chatly is a modern messaging platform built for speed, security, and beauty.</string>
+    <string name="ChatlyAboutWebsite">https://chatly.app</string>
     
     <!-- Theme Names -->
-    <string name="ThemeChatlyDefault">Chatly Default</string>
-    <string name="ThemeChatlyDark">Chatly Dark</string>
-    <string name="ThemeChatlyNight">Chatly Night</string>
-    <string name="ThemeChatlyPremium">Chatly Premium Indigo</string>
-    <string name="ThemeChatlyOcean">Chatly Ocean</string>
-    <string name="ThemeChatlySunset">Chatly Sunset</string>
+    <string name="ChatlyThemeDefault">Chatly Default</string>
+    <string name="ChatlyThemeDark">Chatly Dark</string>
+    <string name="ChatlyThemeNight">Chatly Night</string>
+    <string name="ChatlyThemePremium">Chatly Premium Indigo</string>
+    <string name="ChatlyThemeOcean">Chatly Ocean</string>
+    <string name="ChatlyThemeSunset">Chatly Sunset</string>
 </resources>
