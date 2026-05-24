@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Chatly Android Overlay - Strings Resource File
+  This file replaces upstream strings to rebrand Telegram as Chatly
+-->
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Chatly</string>
+    
+    <!-- About Screen -->
+    <string name="AppName">Chatly</string>
+    <string name="AppNameFull">Chatly Messenger</string>
+    
+    <!-- Settings & Headers -->
+    <string name="SettingsTitle">Settings</string>
+    <string name="ChatListHeader">Chats</string>
+    
+    <!-- Premium Features Rebranding -->
+    <string name="PremiumFeatureTitle">Chatly Premium</string>
+    <string name="PremiumUpgrade">Upgrade to Chatly Premium</string>
+    
+    <!-- Legal & Attribution -->
+    <string name="AboutChatly">About Chatly</string>
+    <string name="AboutVersion">Version</string>
+    <string name="AboutSource">Source Code</string>
+    <string name="AboutLicense">GNU General Public License v3.0</string>
+    <string name="AboutAttribution">Chatly is a derivative work of Telegram-Android (GPL-2.0+). Source code available at https://github.com/DrKLO/Telegram</string>
+    
+    <!-- Color Theme Names -->
+    <string name="ThemeNameDefault">Chatly Default</string>
+    <string name="ThemeNameDark">Chatly Dark</string>
+    <string name="ThemeNameNight">Chatly Night</string>
+</resources>

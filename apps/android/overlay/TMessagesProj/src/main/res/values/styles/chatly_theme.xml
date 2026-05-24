@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Chatly Android Theme - Premium Color Grading
+  Modern Material Design theme with indigo/teal accent colors
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    
+    <!-- Base Chatly Theme -->
+    <style name="ChatlyTheme" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary brand colors -->
+        <item name="colorPrimary">@color/chatly_primary</item>
+        <item name="colorPrimaryDark">@color/chatly_primary_dark</item>
+        <item name="colorAccent">@color/chatly_accent</item>
+        
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/chatly_background</item>
+        <item name="colorSurface">@color/chatly_surface</item>
+        
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/chatly_text_primary</item>
+        <item name="android:textColorSecondary">@color/chatly_text_secondary</item>
+        
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/chatly_background</item>
+        <item name="android:navigationBarColor">@color/chatly_background</item>
+        
+        <!-- Button style -->
+        <item name="materialButtonStyle">@style/ChatlyButtonStyle</item>
+    </style>
+    
+    <!-- Chatly Button Style -->
+    <style name="ChatlyButtonStyle" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/chatly_primary</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textColor">@color/chatly_text_primary</item>
+    </style>
+    
+    <!-- Chatly Light Theme variant -->
+    <style name="ChatlyTheme.Light" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/chatly_primary</item>
+        <item name="colorPrimaryDark">@color/chatly_primary_dark</item>
+        <item name="colorAccent">@color/chatly_accent</item>
+        <item name="android:colorBackground">#FFFFFF</item>
+        <item name="colorSurface">#F8FAFC</item>
+        <item name="android:textColorPrimary">#0F172A</item>
+        <item name="android:textColorSecondary">#64748B</item>
+    </style>
+    
+    <!-- Splash Screen Theme -->
+    <style name="ChatlyTheme.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/chatly_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/chatly_gradient_background</item>
+        <item name="postSplashScreenTheme">@style/ChatlyTheme</item>
+    </style>
+    
+</resources>

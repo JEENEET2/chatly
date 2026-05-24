@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Chatly Android Manifest Overlay
+  Rebrands package name, app name, and theme
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.telegram.messenger">
+    
+    <application
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/ChatlyTheme"
+        android:name=".ApplicationLoader">
+        
+        <!-- Main Activity -->
+        <activity
+            android:name=".LaunchActivity"
+            android:label="@string/AppName"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+    </application>
+</manifest>
