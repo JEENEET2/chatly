@@ -1451,6 +1451,8 @@ public class LocaleController {
         }
         if (value == null) {
             value = "LOC_ERR:" + key;
+        } else {
+            value = value.replace("Telegram", "ChatGram").replace("telegram", "chatgram").replace("TELEGRAM", "CHATGRAM");
         }
         return value;
     }
@@ -1462,6 +1464,9 @@ public class LocaleController {
             if (resourceId != 0) {
                 value = ApplicationLoader.applicationContext.getString(resourceId);
             }
+        }
+        if (value != null) {
+            value = value.replace("Telegram", "ChatGram").replace("telegram", "chatgram").replace("TELEGRAM", "CHATGRAM");
         }
         return value;
     }

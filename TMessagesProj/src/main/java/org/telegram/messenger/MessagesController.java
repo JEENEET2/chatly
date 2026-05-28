@@ -6660,43 +6660,38 @@ public class MessagesController extends BaseController implements NotificationCe
     }
 
     public boolean isChatNoForwards(TLRPC.Chat chat) {
-        if (chat == null) {
-            return false;
-        }
-        if (chat.migrated_to != null) {
-            TLRPC.Chat migratedTo = getChat(chat.migrated_to.channel_id);
-            if (migratedTo != null) {
-                return migratedTo.noforwards;
-            }
-        }
-        return chat.noforwards;
+        return false;
     }
 
     public boolean isChatNoForwards(long chatId) {
-        return isChatNoForwards(getChat(chatId));
+        return false;
     }
 
     public boolean isPeerNoForwards(long dialogId) {
-        return dialogId > 0 ? isUserNoForwards(dialogId) : isChatNoForwards(-dialogId);
+        return false;
     }
 
     public boolean isUserNoForwards(long userId) {
-        return isUserNoForwards(getUserFull(userId));
+        return false;
     }
 
     public boolean isUserNoForwards(TLRPC.UserFull userFull) {
-        if (userFull == null) {
-            return false;
-        }
-
-        return userFull.noforwards_peer_enabled || userFull.noforwards_my_enabled;
+        return false;
     }
 
     public TLRPC.User getUser(Long id) {
         if (id == 0) {
-            return UserConfig.getInstance(currentAccount).getCurrentUser();
+            TLRPC.User user = UserConfig.getInstance(currentAccount).getCurrentUser();
+            if (user != null) {
+                user.premium = true;
+            }
+            return user;
         }
-        return users.get(id);
+        TLRPC.User user = users.get(id);
+        if (user != null && user.id == UserConfig.getInstance(currentAccount).getClientUserId()) {
+            user.premium = true;
+        }
+        return user;
     }
 
     public TLObject getUserOrChat(long dialogId) {

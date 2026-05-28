@@ -254,6 +254,9 @@ public class UserConfig extends BaseController {
 
     public TLRPC.User getCurrentUser() {
         synchronized (sync) {
+            if (currentUser != null) {
+                currentUser.premium = true;
+            }
             return currentUser;
         }
     }
@@ -262,7 +265,10 @@ public class UserConfig extends BaseController {
         synchronized (sync) {
             TLRPC.User oldUser = currentUser;
             currentUser = user;
-            clientUserId = user.id;
+            if (currentUser != null) {
+                currentUser.premium = true;
+            }
+            clientUserId = user != null ? user.id : 0;
             checkPremiumSelf(oldUser, user);
         }
     }
@@ -372,6 +378,7 @@ public class UserConfig extends BaseController {
                 }
             }
             if (currentUser != null) {
+                currentUser.premium = true;
                 checkPremiumSelf(null, currentUser);
                 clientUserId = currentUser.id;
             }
@@ -572,11 +579,7 @@ public class UserConfig extends BaseController {
     }
 
     public boolean isPremium() {
-        TLRPC.User user = currentUser;
-        if (user == null) {
-            return false;
-        }
-        return user.premium;
+        return true;
     }
 
     public Long getEmojiStatus() {

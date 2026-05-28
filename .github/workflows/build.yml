@@ -41,15 +41,23 @@ jobs:
           TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
           TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
 
-      - name: Find and Rename APK
+      - name: Find and Rename APKs
         run: |
           mkdir -p output/
-          find TMessagesProj_AppStandalone/build/outputs/apk/ -name "*.apk" -exec cp {} output/chatgram.apk \;
-          echo "APK successfully copied to output/chatgram.apk"
+          find TMessagesProj_AppStandalone/build/outputs/apk/ -name "*.apk" -exec cp {} output/ \;
+          cd output
+          mv app-universal.apk chatgram-universal.apk || true
+          mv app-arm64-v8a.apk chatgram-arm64-v8a.apk || true
+          mv app-armeabi-v7a.apk chatgram-armeabi-v7a.apk || true
+          mv app-x86.apk chatgram-x86.apk || true
+          mv app-x86_64.apk chatgram-x86_64.apk || true
+          mv app.apk chatgram.apk || true
+          echo "APKs successfully copied and renamed"
+          ls -lh
 
-      - name: Upload ChatGram APK Artifact
+      - name: Upload ChatGram APK Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: chatgram-apk
-          path: output/chatgram.apk
+          name: chatgram-apks
+          path: output/
           if-no-files-found: error
