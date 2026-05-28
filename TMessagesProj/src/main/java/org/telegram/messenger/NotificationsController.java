@@ -1008,6 +1008,31 @@ public class NotificationsController extends BaseController {
         });
     }
 
+    private String getSenderName(MessageObject messageObject) {
+        if (messageObject == null) {
+            return "";
+        }
+        if (messageObject.isFcmMessage()) {
+            if (messageObject.localUserName != null) {
+                return messageObject.localUserName;
+            }
+            return messageObject.localName != null ? messageObject.localName : "";
+        }
+        long fromId = messageObject.getFromChatId();
+        if (fromId > 0) {
+            TLRPC.User user = getMessagesController().getUser(fromId);
+            if (user != null) {
+                return UserObject.getUserName(user);
+            }
+        } else if (fromId < 0) {
+            TLRPC.Chat chat = getMessagesController().getChat(-fromId);
+            if (chat != null) {
+                return getTitle(chat);
+            }
+        }
+        return "";
+    }
+
     public void processNewMessages(ArrayList<MessageObject> messageObjects, boolean isLast, boolean isFcm, CountDownLatch countDownLatch) {
         if (BuildVars.LOGS_ENABLED) {
             FileLog.d("NotificationsController: processNewMessages msgs.size()=" + (messageObjects == null ? "null" : messageObjects.size()) + " isLast=" + isLast + " isFcm=" + isFcm + ")");
@@ -1061,7 +1086,7 @@ public class NotificationsController extends BaseController {
             for (int a = 0; a < messageObjects.size(); a++) {
                 MessageObject messageObject = messageObjects.get(a);
                 if (messageObject != null) {
-                    String senderName = messageObject.getSenderName();
+                    String senderName = getSenderName(messageObject);
                     String text = messageObject.messageText != null ? messageObject.messageText.toString() : "";
                     if (com.chatgram.features.notifications.SmartNotificationManager.shouldSuppressNotification(text, senderName)) {
                         if (BuildVars.LOGS_ENABLED) {
