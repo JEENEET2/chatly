@@ -1,0 +1,14 @@
+{
+  "name": "chatgram-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd web && npm run build",
+    "install": "cd web && npm install"
+  },
+  "dependencies": {
+    "next": "14.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}
