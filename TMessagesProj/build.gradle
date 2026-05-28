@@ -258,4 +258,25 @@ task checkVisibility {
     }
 }
 
-preBuild.dependsOn checkVisibility
+task injectCredentials {
+    doLast {
+        def apiId = System.getenv("TELEGRAM_API_ID")
+        def apiHash = System.getenv("TELEGRAM_API_HASH")
+        if (apiId && apiHash) {
+            def buildVarsFile = file("src/main/java/org/telegram/messenger/BuildVars.java")
+            if (buildVarsFile.exists()) {
+                def content = buildVarsFile.text
+                content = content.replace("public static int APP_ID = 2040;", "public static int APP_ID = ${apiId};")
+                content = content.replace('public static String APP_HASH = "b184100b085b0d0572f9b51030000000";', "public static String APP_HASH = \"${apiHash}\";")
+                buildVarsFile.text = content
+                println "[ChatGram] Injected API credentials into BuildVars.java"
+            } else {
+                println "[ChatGram] Error: BuildVars.java not found"
+            }
+        } else {
+            println "[ChatGram] No API credentials found in environment. Using default placeholder values."
+        }
+    }
+}
+
+preBuild.dependsOn injectCredentials, checkVisibility
