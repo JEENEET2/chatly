@@ -439,13 +439,13 @@
     <string name="LanguageUnknownCustomAlert">Sfortunatamente, questa lingua personalizzata (**%1$s**) non contiene dati per ChatGram Android.</string>
     <string name="AskAQuestionInfo">Per favore ricorda che il supporto di ChatGram è gestito da volontari. Proviamo a rispondere quanto prima, ma potrebbe volerci del tempo.\n\nDai un\'occhiata alle <![CDATA[<a href=\"https://telegram.org/faq/it#domande-generali\">FAQ di ChatGram</a>]]>: contengono risposte a quasi tutte le domande e suggerimenti importanti per <![CDATA[<a href=\"https://telegram.org/faq/it#risoluzione-dei-problemi\">risolvere i problemi</a>]]>.</string>
     <string name="AskButton">Chiedi ai volontari</string>
-    <string name="TelegramFAQ">FAQ ChatGram</string>
-    <string name="TelegramFaq">FAQ ChatGram</string>
-    <string name="TelegramFeatures">Funzioni di ChatGram</string>
-    <string name="TelegramFeaturesUrl">https://t.me/ChatGramTipsIT</string>
+    <string name="ChatGramFAQ">FAQ ChatGram</string>
+    <string name="ChatGramFaq">FAQ ChatGram</string>
+    <string name="ChatGramFeatures">Funzioni di ChatGram</string>
+    <string name="ChatGramFeaturesUrl">https://t.me/ChatGramTipsIT</string>
     <string name="AddAccount">Aggiungi account</string>
     <string name="SelectAccount">Seleziona Account</string>
-    <string name="TelegramFaqUrl">https://telegram.org/faq/it</string>
+    <string name="ChatGramFaqUrl">https://telegram.org/faq/it</string>
     <string name="PrivacyPolicy">Informativa sulla Privacy</string>
     <string name="TermsOfService">Termini di Servizio</string>
     <string name="TermsOfServiceLogin">Iscrivendoti, accetti\ni *Termini di Servizio*.</string>
@@ -588,7 +588,7 @@
     <string name="DirectShareInfo">Mostra le chat recenti nel menu di condivisione</string>
     <string name="Emoji">Emoji</string>
     <string name="LargeEmoji">Emoji grandi</string>
-    <string name="TelegramVersion">ChatGram per Android %1$s</string>
+    <string name="ChatGramVersion">ChatGram per Android %1$s</string>
     <string name="DebugMenu">Menu debug</string>
     <string name="DebugMenuLongPress">Tieni premuto di nuovo per il menu di debug</string>
     <string name="DebugSendLogs">Invia i log</string>
@@ -644,13 +644,13 @@
     <string name="UseProxySecret">Segreto\n</string>
     <string name="UseProxyUsername">Username</string>
     <string name="UseProxySocks5">Proxy SOCKS5</string>
-    <string name="UseProxyTelegram">Proxy MTProto</string>
-    <string name="UseProxyTelegramError">Il proxy che stai usando non è configurato correttamente e sarà disattivato. Per favore trovane un altro.</string>
+    <string name="UseProxyChatGram">Proxy MTProto</string>
+    <string name="UseProxyChatGramError">Il proxy che stai usando non è configurato correttamente e sarà disattivato. Per favore trovane un altro.</string>
     <string name="UseProxySponsor">Sponsor del proxy</string>
     <string name="UseProxySponsorInfo">Questo canale è mostrato dal tuo server proxy. Per rimuovere il canale dalla lista chat, disattiva il proxy nelle Impostazioni di ChatGram &gt; Dati e archivio.</string>
     <string name="UseProxyInfo">Impostazioni proxy SOCKS5</string>
-    <string name="UseProxyTelegramInfo">Impostazioni proxy MTProto.</string>
-    <string name="UseProxyTelegramInfo2">Questo proxy potrebbe mostrare un canale sponsorizzato nella tua lista chat. Questo non rivela nulla del tuo traffico ChatGram.</string>
+    <string name="UseProxyChatGramInfo">Impostazioni proxy MTProto.</string>
+    <string name="UseProxyChatGramInfo2">Questo proxy potrebbe mostrare un canale sponsorizzato nella tua lista chat. Questo non rivela nulla del tuo traffico ChatGram.</string>
     <string name="UseProxyForCalls">Usa il proxy per le chiamate</string>
     <string name="UseProxyForCallsInfo">I server proxy potrebbero ridurre la qualità delle tue chiamate.</string>
     <string name="ConnectingToProxyEnable">Attiva</string>
@@ -1325,7 +1325,7 @@
     <string name="DeleteAll">Elimina tutto</string>
     <string name="StopLoadingTitle">Interrompere il caricamento?</string>
     <string name="StopLoading">Vuoi terminare il caricamento?</string>
-    <string name="UpdateTelegram">Aggiorna ChatGram</string>
+    <string name="UpdateChatGram">Aggiorna ChatGram</string>
     <string name="UpdateAppAlert">Spiacenti, la tua app ChatGram è obsoleta e non può gestire la richiesta. Per favore aggiorna ChatGram.</string>
     <string name="InvalidPhoneNumber">Numero di telefono non valido. Per favore controlla il numero e riprova.</string>
     <string name="PleaseLoginPassport">Per favore accedi al tuo account ChatGram per usare ChatGram Passport.</string>
